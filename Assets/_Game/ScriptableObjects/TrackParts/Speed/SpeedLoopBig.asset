@@ -19,7 +19,7 @@ MonoBehaviour:
   ExitPoint:
     localPosition: {x: 0, y: 0}
     angle: 0
-  TrackType: 4
+  TrackType: 5
   SpeedMultiplier: 1
   RequiresSupport: 1
   RequiredWood: 3
