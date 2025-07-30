@@ -4,23 +4,24 @@ public enum SoundType
 
     // music
     MenuMusic = 1,
-    GameAmbience = 2,
+    GameMusic = 2,
 
     // UI
     ButtonPress = 3,
     ButtonHover = 4,
     TutorialPopup = 5,
 
-    // SFX - items
-    FoodPickedUp = 6,
-    ItemPickedUp = 8,
-    ItemUsed = 10,
-    PotionPickUp = 17,
-
-    ItemUseMouse = 14,
-    ItemUseTowel = 15,
-
-    // SFX - other
-    Footsteps = 16,
-    Rumbling = 17,
+    // SFX
+    GameAmbience = 6,
+    RollerCoasterRiding = 7,
+    MaleScreamingFear = 8,
+    MaleScreamingExcitement = 9,
+    FemaleScreamingFear = 10,
+    FemaleScreamingExcitement = 11,
+    NeckCrack = 12,
+    TrackPartPickup = 13,
+    TrackPartPlace = 14,
+    WoodBreak = 15,
+    IronBreak = 16,
+    PowerSupplyBreak = 17,
 }
