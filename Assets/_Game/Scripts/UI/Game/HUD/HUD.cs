@@ -1,14 +1,8 @@
 using UnityEngine;
 
-public class MainMenuScreen : BaseScreen
+public class HUD : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
-
-    public void OpenLevelSelect()
-    {
-        ScreenEvents.OnGameScreenOpenedInvoke( GameScreenType.LevelSelect );
-        Destroy( gameObject );
-    }
 
     public void OpenOptions()
     {
@@ -21,6 +15,4 @@ public class MainMenuScreen : BaseScreen
         _optionsPopup.gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
-
-    public void ExitGame() => Application.Quit();
 }
