@@ -115,6 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenuScreenPrefab: {fileID: 8755729271054691689, guid: 70e4c69658eb92e43ab516931944cc42, type: 3}
-  _cardsScreenPrefab: {fileID: 8314262471598586475, guid: 0d9b6509c6e1aeb49babd11940b7e399, type: 3}
-  _shopScreenPrefab: {fileID: 3637269544092624205, guid: 54df560405638e64a9fe82c6cbf4b6d3, type: 3}
-  _loadoutScreenPrefab: {fileID: 414550810275870006, guid: f02ba7747ffad6646aae761c9bda6cba, type: 3}
+  _levelSelectScreenPrefab: {fileID: 5226328719207364500, guid: 807e8795d881f5b48a1d3c3dafd91730, type: 3}
+  _optionsScreenPrefab: {fileID: 8136573190602441412, guid: ae29444033d324f478770e7844710d72, type: 3}
