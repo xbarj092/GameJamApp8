@@ -9,7 +9,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
         {
             if (m_Instance == null)
             {
-                m_Instance = FindObjectOfType(typeof(T)) as T;
+                m_Instance = FindFirstObjectByType(typeof(T)) as T;
                 if (m_Instance == null)
                 {
                     Debug.LogWarning("No instance of " + typeof(T).ToString() + ", a temporary one is created.");
