@@ -3,6 +3,8 @@ using UnityEngine;
 public class MenuCanvasController : CanvasController
 {
     [SerializeField] private MainMenuScreen _mainMenuScreenPrefab;
+    [SerializeField] private LevelSelectScreen _levelSelectScreenPrefab;
+    [SerializeField] private OptionsScreen _optionsScreenPrefab;
 
     private void Awake()
     {
@@ -14,6 +16,8 @@ public class MenuCanvasController : CanvasController
         return gameScreenType switch
         {
             GameScreenType.MainMenu => Instantiate(_mainMenuScreenPrefab, transform),
+            GameScreenType.LevelSelect => Instantiate( _levelSelectScreenPrefab, transform ),
+            GameScreenType.Options => Instantiate( _optionsScreenPrefab, transform ),
             _ => base.InstantiateNewGameScreen(gameScreenType),
         };
     }
