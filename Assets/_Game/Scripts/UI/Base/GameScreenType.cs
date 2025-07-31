@@ -4,4 +4,5 @@ public enum GameScreenType
     MainMenu = 1,
     LevelSelect = 2,
     Options = 3,
+    Game = 4,
 }

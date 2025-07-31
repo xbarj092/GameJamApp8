@@ -16,8 +16,8 @@ public class MenuCanvasController : CanvasController
         return gameScreenType switch
         {
             GameScreenType.MainMenu => Instantiate(_mainMenuScreenPrefab, transform),
-            GameScreenType.LevelSelect => Instantiate( _levelSelectScreenPrefab, transform ),
-            GameScreenType.Options => Instantiate( _optionsScreenPrefab, transform ),
+            GameScreenType.LevelSelect => Instantiate(_levelSelectScreenPrefab, transform),
+            GameScreenType.Options => Instantiate(_optionsScreenPrefab, transform),
             _ => base.InstantiateNewGameScreen(gameScreenType),
         };
     }
