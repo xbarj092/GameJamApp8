@@ -1,8 +1,15 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameObject _visual;
+    [SerializeField] private float _rotationDuration;
+    [SerializeField] private Vector3 _rotationAngleDefault;
+    [SerializeField] private Vector3 _rotationAngleLeft;
+    [SerializeField] private Vector3 _rotationAngleRight;
+
     [SerializeField] private float _moveSpeed;
 
     [SerializeField] private KeyCode _leftKey;
@@ -15,6 +22,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        transform.Translate(GameManager.Instance.MovementSpeed * Time.deltaTime * Vector3.forward);
+
         if (_isMoving)
         {
             return;
@@ -40,6 +49,11 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (_isMoving)
+            {
+                _visual.transform.DORotate(_rotationAngleDefault, _rotationDuration).SetEase(Ease.OutBack);
+            }
+
             _isMoving = false;
         }
     }
@@ -48,6 +62,8 @@ public class Player : MonoBehaviour
     {
         if (CurrentLine > 0)
         {
+            _visual.transform.DORotate(_rotationAngleLeft, _rotationDuration).SetEase(Ease.OutBack);
+
             MoveToLine(CurrentLine - 1);
         }
     }
@@ -56,6 +72,8 @@ public class Player : MonoBehaviour
     {
         if (CurrentLine < _positions.Length - 1)
         {
+            _visual.transform.DORotate(_rotationAngleRight, _rotationDuration).SetEase(Ease.OutBack);
+
             MoveToLine(CurrentLine + 1);
         }
     }

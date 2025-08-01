@@ -17,7 +17,6 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(GameManager.Instance.MovementSpeed * Time.deltaTime * Vector3.back);
         if (transform.position.y < -10f)
         {
             Destroy(gameObject);
@@ -30,6 +29,11 @@ public class Obstacle : MonoBehaviour
         {
             player.Death();
             // AudioManager.Instance.Play(SoundType.PlayerHitObstacle);
+        }
+
+        if (other.CompareTag("ObjectDestroyer"))
+        {
+            Destroy(gameObject);
         }
     }
 }
