@@ -11,7 +11,7 @@ public class SpawnerDown : MonoBehaviour
     [SerializeField] private float _positionDelay = 2f;
 
     [Header("Obstacles")]
-    [SerializeField] private Obstacle _obstaclePrefab;
+    [SerializeField] private List<Obstacle> _obstaclePrefabs;
     [SerializeField][Range(0f, 1f)] private float _spawnChance = 1f;
 
     [SerializeField] private SerializedDictionary<int, int> _spawnRateMultiplierThresholds = new();
@@ -47,28 +47,24 @@ public class SpawnerDown : MonoBehaviour
         }
     }
 
-    private Vector3 GetPlayerPositionFromPast()
+    private float GetPlayerPositionFromPast()
     {
-        return _playerPositionHistory.Count > 0 ? new Vector3(_positions[_playerPositionHistory.Peek()], transform.position.y, transform.position.z) : 
-            new Vector3(_positions[_player.CurrentLine], transform.position.y, transform.position.z);
+        return _playerPositionHistory.Count > 0 ? _positions[_playerPositionHistory.Peek()] : _positions[_player.CurrentLine];
     }
 
-    private float GetClosestSpawnPosition(float targetX)
+    private List<float> GetSpawnPoints(float targetX)
     {
-        float closestPosition = _positions[0];
-        float closestDistance = Mathf.Abs(targetX - closestPosition);
+        List<float> spawnPoints = new();
 
-        for (int i = 1; i < _positions.Length; i++)
+        foreach (float position in _positions)
         {
-            float distance = Mathf.Abs(targetX - _positions[i]);
-            if (distance < closestDistance)
+            if (Mathf.Abs(targetX - position) > 0.01f)
             {
-                closestDistance = distance;
-                closestPosition = _positions[i];
+                spawnPoints.Add(position);
             }
         }
 
-        return closestPosition;
+        return spawnPoints;
     }
 
     private IEnumerator SpawnRoutine()
@@ -94,22 +90,28 @@ public class SpawnerDown : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        Vector3 pastPlayerPosition = GetPlayerPositionFromPast();
+        float pastPlayerPosition = GetPlayerPositionFromPast();
 
-        float targetSpawnX = GetClosestSpawnPosition(pastPlayerPosition.x);
+        List<float> targetSpawnXList = GetSpawnPoints(pastPlayerPosition);
 
-        Vector3 spawnPosition = new(targetSpawnX, transform.position.y, transform.position.z);
-        Obstacle obstacle = Instantiate(_obstaclePrefab, spawnPosition, Quaternion.identity);
-        obstacle.transform.localScale = Vector3.one;
-
-        Vector2 obstacleSize = Vector3.one;
-        Collider2D[] collidersInRange = Physics2D.OverlapBoxAll(spawnPosition, obstacleSize, 0f);
-        bool hasOverlapWithOtherObstacles = collidersInRange.Where(collider => collider.CompareTag("Obstacle") &&
-            !collider.transform.IsChildOf(obstacle.transform)).Any();
-
-        if (hasOverlapWithOtherObstacles)
+        foreach (float targetSpawnX in targetSpawnXList)
         {
-            Destroy(obstacle.gameObject);
+            Vector3 spawnPosition = new(targetSpawnX, transform.position.y, transform.position.z);
+
+            Obstacle obstacle = _obstaclePrefabs[Random.Range(0, _obstaclePrefabs.Count)];
+
+            Obstacle spawnedObstacle = Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            spawnedObstacle.transform.localScale = Vector3.one;
+
+            Vector2 obstacleSize = Vector3.one;
+            Collider2D[] collidersInRange = Physics2D.OverlapBoxAll(spawnPosition, obstacleSize, 0f);
+            bool hasOverlapWithOtherObstacles = collidersInRange.Where(collider => collider.CompareTag("Obstacle") &&
+                !collider.transform.IsChildOf(spawnedObstacle.transform)).Any();
+
+            if (hasOverlapWithOtherObstacles)
+            {
+                Destroy(spawnedObstacle.gameObject);
+            }
         }
     }
 }

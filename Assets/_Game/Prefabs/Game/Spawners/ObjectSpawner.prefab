@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6071398479847634319
+--- !u!1 &5672758836131821773
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4873248421382711513}
-  - component: {fileID: 8764057899883754703}
+  - component: {fileID: 6343547608689821408}
+  - component: {fileID: 4937650964091361577}
   m_Layer: 0
-  m_Name: ObjectSpawnerDown
+  m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4873248421382711513
+--- !u!4 &6343547608689821408
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6071398479847634319}
+  m_GameObject: {fileID: 5672758836131821773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -1, z: 30}
+  m_LocalPosition: {x: -1.25, y: 1, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8764057899883754703
+--- !u!114 &4937650964091361577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6071398479847634319}
+  m_GameObject: {fileID: 5672758836131821773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3685d7488ebcec242a51f674b9363e28, type: 3}
+  m_Script: {fileID: 11500000, guid: 67ca1592f495a20479f5eae94a898fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnInterval: 2
-  _positionDelay: 2
-  _obstaclePrefab: {fileID: 1368501417917094931, guid: 1776de3835b094d43a2136e9fc6b9246, type: 3}
+  _spawnInterval: 1
+  _obstaclePrefabs:
+  - {fileID: 1368501417917094931, guid: 5cefa468b95ec904a99a1078381597ca, type: 3}
+  - {fileID: 1368501417917094931, guid: 5258a83f5baa4e947941c7c004219edd, type: 3}
+  - {fileID: 1368501417917094931, guid: 7db1225a1e5bfc847a63788cb1a7919d, type: 3}
+  - {fileID: 1368501417917094931, guid: 4ab104afd414ece47b08542189a61a6b, type: 3}
   _spawnChance: 1
+  _shieldPickupPrefab: {fileID: 0}
+  _hpPickupPrefab: {fileID: 0}
+  _bulletPickupPrefab: {fileID: 0}
+  _pickupSpawnChance: 0
   _spawnRateMultiplierThresholds:
     _serializedList: []

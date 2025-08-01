@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _spawnInterval = 2f;
 
     [Header("Obstacles")]
-    [SerializeField] private Obstacle _obstaclePrefab;
+    [SerializeField] private List<Obstacle> _obstaclePrefabs;
     [SerializeField][Range(0f, 1f)] private float _spawnChance = 1f;
 
     [Header("Pickupables")]
@@ -65,15 +65,18 @@ public class Spawner : MonoBehaviour
     {
         float spawnPositionX = _positions[Random.Range(0, _positions.Length)];
         Vector3 spawnPosition = new(spawnPositionX, transform.position.y, transform.position.z);
-        Obstacle obstacle = Instantiate(_obstaclePrefab, spawnPosition, Quaternion.identity);
-        obstacle.transform.localScale = Vector3.one;
+
+        Obstacle obstacle = _obstaclePrefabs[Random.Range(0, _obstaclePrefabs.Count)];
+
+        Obstacle spawnedObstacle = Instantiate(obstacle, spawnPosition, Quaternion.identity);
+        spawnedObstacle.transform.localScale = Vector3.one;
         Vector2 obstacleSize = Vector3.one;
         Collider2D[] collidersInRange = Physics2D.OverlapBoxAll(spawnPosition, obstacleSize, 0f);
         bool hasOverlapWithOtherObstacles = collidersInRange.Where(collider => collider.CompareTag("Obstacle") && 
-            !collider.transform.IsChildOf(obstacle.transform)).Any();
+            !collider.transform.IsChildOf(spawnedObstacle.transform)).Any();
         if (hasOverlapWithOtherObstacles)
         {
-            Destroy(obstacle.gameObject);
+            Destroy(spawnedObstacle.gameObject);
         }
     }
 
