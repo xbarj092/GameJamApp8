@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HUD : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
+
+    [SerializeField] private RectTransform _shopScrollview;
+
 
     public void OpenOptions()
     {

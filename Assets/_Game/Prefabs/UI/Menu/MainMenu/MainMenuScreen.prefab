@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803593804080080142, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenLevelSelect
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 1803593804080080142, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

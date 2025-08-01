@@ -4,10 +4,9 @@ public class MainMenuScreen : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
 
-    public void OpenLevelSelect()
+    public void Play()
     {
-        ScreenEvents.OnGameScreenOpenedInvoke( GameScreenType.LevelSelect );
-        Destroy( gameObject );
+        SceneLoadManager.Instance.GoMenuToGame();
     }
 
     public void OpenOptions()
