@@ -7,7 +7,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private float[] _positions = { -3.75f, -1.25f, 1.25f };
-    [SerializeField] private float _spawnInterval = 1f;
+    [SerializeField] private float _spawnInterval = 2f;
 
     [Header("Obstacles")]
     [SerializeField] private Obstacle _obstaclePrefab;
@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        _player = FindObjectOfType<Player>();
+        _player = GameObject.FindGameObjectWithTag("PlayerTwo").GetComponent<Player>();
     }
 
     private void Start()
