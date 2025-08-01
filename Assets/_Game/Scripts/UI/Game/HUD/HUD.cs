@@ -1,12 +1,16 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class HUD : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
 
-    [SerializeField] private RectTransform _shopScrollview;
+    [SerializeField] private TMP_Text _scoreText;
 
+    private void Update()
+    {
+        _scoreText.text = GameManager.Instance.Score.ToString();
+    }
 
     public void OpenOptions()
     {
