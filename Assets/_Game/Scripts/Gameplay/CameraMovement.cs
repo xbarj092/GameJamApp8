@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
         GameManager.Instance.OnPlayersSwapped -= SwapPlayers;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         transform.Translate(GameManager.Instance.MovementSpeed * Time.deltaTime * Vector3.forward, Space.World);
         Debug.Log(GameManager.Instance.MovementSpeed);

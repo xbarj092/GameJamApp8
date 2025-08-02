@@ -17,12 +17,12 @@ public class HUD : BaseScreen
 
     private void OnEnable()
     {
-        GameManager.Instance.OnPlayersSwapped += ResetSwapTimer;
+        GameManager.Instance.OnPlayersSwapped += SwapPlayers;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnPlayersSwapped += ResetSwapTimer;
+        GameManager.Instance.OnPlayersSwapped += SwapPlayers;
     }
 
     private void DecrementSeconds()
@@ -30,7 +30,7 @@ public class HUD : BaseScreen
         _currentSeconds--;
     }
 
-    private void ResetSwapTimer()
+    private void SwapPlayers()
     {
         _currentSeconds = GameManager.Instance.SecondsToSwapPlayers;
     }
