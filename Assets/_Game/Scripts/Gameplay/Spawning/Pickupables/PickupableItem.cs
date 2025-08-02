@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class PickupableItem : MonoBehaviour
 {
-    /*[SerializeField] private TMP_Text _text;
+    [SerializeField] private TMP_Text _text;
 
     private IPickupable _pickupableStrategy;
     public IPickupable PickupableStrategy => _pickupableStrategy;
-
-    private void Update()
-    {
-        transform.Translate(GameManager.Instance.MovementSpeed() * Time.deltaTime * Vector3.down);
-        if (transform.position.y < -10f)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void OnDisable()
     {
@@ -61,7 +52,7 @@ public class PickupableItem : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
         {
@@ -77,5 +68,5 @@ public class PickupableItem : MonoBehaviour
             player.CurrentPickupable = null;
             Collect(player);
         }
-    }*/
+    }
 }

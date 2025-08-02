@@ -14,6 +14,13 @@ public class SpawnerDown : MonoBehaviour
     [SerializeField] private List<Obstacle> _obstaclePrefabs;
     [SerializeField][Range(0f, 1f)] private float _spawnChance = 1f;
 
+    [Header("Pickupables")]
+    [SerializeField] private PickupableItem _shieldPickupPrefab;
+    [SerializeField] private PickupableItem _hpPickupPrefab;
+    [SerializeField] private PickupableItem _bulletPickupPrefab;
+
+    [SerializeField][Range(0f, 1f)] private float _pickupSpawnChance = 0.0f;
+
     [SerializeField] private SerializedDictionary<int, int> _spawnRateMultiplierThresholds = new();
 
     private Player _player;
@@ -83,6 +90,10 @@ public class SpawnerDown : MonoBehaviour
 
             if (Random.value <= _spawnChance)
             {
+                if (Random.value <= _pickupSpawnChance)
+                {
+                    SpawnPickupable();
+                }
                 SpawnObstacle();
             }
         }
@@ -113,5 +124,48 @@ public class SpawnerDown : MonoBehaviour
                 Destroy(spawnedObstacle.gameObject);
             }
         }
+    }
+
+    private void SpawnPickupable()
+    {
+        float hpWeight = 1f;
+        /*float ammoWeight = 1f;
+        float shieldWeight = 1f;*/
+
+        if (_player.CurrentHealth() <= 50)
+        {
+            hpWeight = 2f;
+        }
+        /*if (_player.Ammo <= 5)
+        {
+            ammoWeight = 4f;
+        }
+        if (!_player.Shield)
+        {
+            shieldWeight = 1.5f;
+        }*/
+
+        float totalWeight = hpWeight;// + ammoWeight + shieldWeight;
+        float randomValue = Random.Range(0f, totalWeight);
+
+        if (/*randomValue < hpWeight*/ true)
+        {
+            SpawnPickup(_hpPickupPrefab, new HpPickup(1));
+        }
+        /*else if (randomValue < hpWeight + ammoWeight)
+        {
+            SpawnPickup(_bulletPickupPrefab, new BulletPickup(5));
+        }
+        else
+        {
+            SpawnPickup(_shieldPickupPrefab, new ShieldPickup());
+        }*/
+    }
+
+    private void SpawnPickup(PickupableItem prefab, IPickupable pickupStrategy)
+    {
+        Vector3 spawnPosition = new(GetPlayerPositionFromPast(), transform.position.y, transform.position.z);
+        PickupableItem pickup = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        pickup.SetPickupable(pickupStrategy);
     }
 }

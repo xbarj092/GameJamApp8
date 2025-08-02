@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
             {
                 if (Random.value <= _pickupSpawnChance)
                 {
-                    // SpawnRandomPickup();
+                    SpawnRandomPickup();
                 }
                 else
                 {
@@ -83,14 +83,14 @@ public class Spawner : MonoBehaviour
     private void SpawnRandomPickup()
     {
         float hpWeight = 1f;
-        float ammoWeight = 1f;
-        float shieldWeight = 1f;
+        /*float ammoWeight = 1f;
+        float shieldWeight = 1f;*/
 
-        /*if (_player.CurrentHealth() <= 50)
+        if (_player.CurrentHealth() <= 50)
         {
             hpWeight = 2f;
         }
-        if (_player.Ammo <= 5)
+        /*if (_player.Ammo <= 5)
         {
             ammoWeight = 4f;
         }
@@ -99,14 +99,14 @@ public class Spawner : MonoBehaviour
             shieldWeight = 1.5f;
         }*/
 
-        float totalWeight = hpWeight + ammoWeight + shieldWeight;
+        float totalWeight = hpWeight;// + ammoWeight + shieldWeight;
         float randomValue = Random.Range(0f, totalWeight);
 
-        /*if (randomValue < hpWeight)
+        if (randomValue < hpWeight)
         {
-            SpawnPickup(_hpPickupPrefab, new HpPickup(10));
+            SpawnPickup(_hpPickupPrefab, new HpPickup(1));
         }
-        else if (randomValue < hpWeight + ammoWeight)
+        /*else if (randomValue < hpWeight + ammoWeight)
         {
             SpawnPickup(_bulletPickupPrefab, new BulletPickup(5));
         }
@@ -119,8 +119,8 @@ public class Spawner : MonoBehaviour
     private void SpawnPickup(PickupableItem prefab, IPickupable pickupStrategy)
     {
         float spawnPositionX = _positions[Random.Range(0, _positions.Length)];
-        Vector3 spawnPosition = new(spawnPositionX, transform.position.y, -0.1f);
+        Vector3 spawnPosition = new(spawnPositionX, transform.position.y, transform.position.z);
         PickupableItem pickup = Instantiate(prefab, spawnPosition, Quaternion.identity);
-        // pickup.SetPickupable(pickupStrategy);
+        pickup.SetPickupable(pickupStrategy);
     }
 }

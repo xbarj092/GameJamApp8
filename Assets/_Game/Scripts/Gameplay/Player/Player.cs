@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private float[] _positions = { -3.75f, -1.25f, 1.25f };
     public int CurrentLine = 1;
 
+    public PickupableItem CurrentPickupable;
+
     private bool _isMoving = false;
     private bool _invincible;
 
@@ -80,6 +82,16 @@ public class Player : MonoBehaviour
 
             _isMoving = false;
         }
+    }
+
+    public float CurrentHealth()
+    {
+        return _health.CurrHealth;
+    }
+
+    public void RestoreHealth(int amount)
+    {
+        _health.Heal(amount);
     }
 
     public void Damage(float damage)

@@ -53,9 +53,9 @@ MonoBehaviour:
   - {fileID: 1368501417917094931, guid: 4ab104afd414ece47b08542189a61a6b, type: 3}
   _spawnChance: 1
   _shieldPickupPrefab: {fileID: 0}
-  _hpPickupPrefab: {fileID: 0}
+  _hpPickupPrefab: {fileID: 8069497238217440898, guid: 68706ad8d712415469be8be4e5b38a12, type: 3}
   _bulletPickupPrefab: {fileID: 0}
-  _pickupSpawnChance: 0
+  _pickupSpawnChance: 0.3
   _spawnRateMultiplierThresholds:
     _serializedList: []
 --- !u!1 &5852842605627280340

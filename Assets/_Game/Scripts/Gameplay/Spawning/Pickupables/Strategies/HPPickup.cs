@@ -1,8 +1,8 @@
 using System;
 
-public class HpPickup // : IPickupable
+public class HpPickup : IPickupable
 {
-    /*private int _healthAmount;
+    private int _healthAmount;
 
     private const string MESSAGE = "HP already full";
 
@@ -18,7 +18,7 @@ public class HpPickup // : IPickupable
         if (CanPickUp(player))
         {
             player.RestoreHealth(_healthAmount);
-            AudioManager.Instance.Play(SoundType.HPPickup);
+            // AudioManager.Instance.Play(SoundType.HPPickup);
         }
         else
         {
@@ -28,6 +28,6 @@ public class HpPickup // : IPickupable
 
     public bool CanPickUp(Player player)
     {
-        return player.CurrentHealth() < player.Info.Health;
-    }*/
+        return player.CurrentHealth() < 3;
+    }
 }
