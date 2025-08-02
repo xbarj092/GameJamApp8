@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -9,8 +10,14 @@ public class GameManager : MonoSingleton<GameManager>
         get => _movementSpeedCurve.Evaluate((float)SecondsPassed / 60f) * _baseMovementSpeed;
     }
 
+    public int SecondsToSwapPlayers = 30;
+
     public int SecondsPassed = 0;
     public int Score;
+
+    public int CurrentPlayerIndex = 0;
+
+    public event Action OnPlayersSwapped;
 
     private void Start()
     {
@@ -25,5 +32,11 @@ public class GameManager : MonoSingleton<GameManager>
     private void IncrementSeconds()
     {
         SecondsPassed++;
+
+        if (SecondsPassed % SecondsToSwapPlayers == 0)
+        {
+            OnPlayersSwapped?.Invoke();
+            CurrentPlayerIndex = CurrentPlayerIndex == 0 ? 1 : 0;
+        }
     }
 }

@@ -151,6 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f70135615959546aee54f334994fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerOneRotation: {x: 35, y: 0, z: 0}
+  _playerTwoRotation: {x: -35, y: 0, z: 180}
+  _playerOnePosition: {x: -1.25, y: 4.5, z: -5}
+  _playerTwoPosition: {x: -1.25, y: -4.5, z: -5}
 --- !u!114 &2321102850895355617
 MonoBehaviour:
   m_ObjectHideFlags: 0
