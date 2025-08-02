@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8389735607706989746}
   - component: {fileID: 5357567768613157556}
   - component: {fileID: -6376534981312059484}
+  - component: {fileID: 5839071183603802899}
   m_Layer: 0
   m_Name: PlayerDown
   m_TagString: PlayerTwo
@@ -61,6 +62,7 @@ MonoBehaviour:
   _leftKey: 276
   _rightKey: 275
   CurrentLine: 1
+  CurrentPickupable: {fileID: 0}
 --- !u!54 &-8389735607706989746
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,6 +135,20 @@ MonoBehaviour:
   <OnDeath>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5839071183603802899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174018792715271709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3b6b6287f7f449b065b5af8cae252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkDuration: 1
+  _srObject: {fileID: 4743243203682210649}
 --- !u!1 &6048973474257811086
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +540,11 @@ Transform:
 --- !u!1 &4169930340839485421 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d92bb8bae330a3046a04f3572ead67d0, type: 3}
+  m_PrefabInstance: {fileID: 3828051285996819132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4743243203682210649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: d92bb8bae330a3046a04f3572ead67d0, type: 3}
   m_PrefabInstance: {fileID: 3828051285996819132}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8108802670964043852
