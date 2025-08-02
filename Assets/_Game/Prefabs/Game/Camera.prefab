@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a9e56de248a5c4f8c635462bc3f04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerOneCameraPosition: {x: -1.25, y: 4.5, z: -5}
+  _playerTwoCameraPosition: {x: -1.25, y: -4.5, z: -5}
   _shakeDuration: 0.5
   _shakeIntensity: 0.3
   _decreaseFactor: 1

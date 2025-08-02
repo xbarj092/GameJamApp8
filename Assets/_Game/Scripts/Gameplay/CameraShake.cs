@@ -1,8 +1,12 @@
-using UnityEngine;
+using DG.Tweening;
 using System.Collections;
+using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    [SerializeField] private Vector3 _playerOneCameraPosition;
+    [SerializeField] private Vector3 _playerTwoCameraPosition;
+
     [Header("Shake Settings")]
     public float _shakeDuration = 0.5f;
     public float _shakeIntensity = 0.3f;
@@ -22,17 +26,21 @@ public class CameraShake : MonoBehaviour
 
     private void Start()
     {
-        _originalPosition = transform.localPosition;
+        _originalPosition = _playerOneCameraPosition;
     }
 
     private void OnEnable()
     {
+        GameManager.Instance.OnPlayersSwapped += ChangeOriginalPosition;
+
         _playerOne.OnDamageTaken += Shake;
         _playerTwo.OnDamageTaken += Shake;
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.OnPlayersSwapped += ChangeOriginalPosition;
+
         _playerOne.OnDamageTaken -= Shake;
         _playerTwo.OnDamageTaken -= Shake;
     }
@@ -53,6 +61,11 @@ public class CameraShake : MonoBehaviour
             _currentShakeDuration = 0f;
             transform.localPosition = new (_originalPosition.x, _originalPosition.y, transform.localPosition.z);
         }
+    }
+
+    private void ChangeOriginalPosition()
+    {
+        _originalPosition = GameManager.Instance.CurrentPlayerIndex == 0 ? _playerTwoCameraPosition : _playerOneCameraPosition;
     }
 
     public void Shake()

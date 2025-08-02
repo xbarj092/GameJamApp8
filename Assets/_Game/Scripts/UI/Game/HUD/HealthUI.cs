@@ -36,7 +36,10 @@ public class HealthUI : MonoBehaviour
     {
         Vector2 size = _lowerHealthUIFillBar.rectTransform.sizeDelta;
         size.x = _lowerHealthWidths[(int)value];
-        _lowerHealthUIFillBar.rectTransform.sizeDelta = size;
+
+        _lowerHealthUIFillBar.rectTransform
+            .DOSizeDelta(size, 0.25f)
+            .SetEase(Ease.OutQuad);
     }
 
     private void OnDisable()
