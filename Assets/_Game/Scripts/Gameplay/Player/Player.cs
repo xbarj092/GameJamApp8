@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     private bool _invincible;
 
     public event Action<float> OnHealthChanged;
+    public event Action OnDamageTaken;
 
     private void OnEnable()
     {
@@ -116,16 +117,6 @@ public class Player : MonoBehaviour
     private IEnumerator Invincibility()
     {
         _invincible = true;
-        /*Color baseColor = _renderer.color;
-        Color disabledColor = new(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0);
-        for (int i = 0; i < 5; i++)
-        {
-            _renderer.color = disabledColor;
-            yield return new WaitForSeconds(0.1f);
-            _renderer.color = baseColor;
-            yield return new WaitForSeconds(0.1f);
-        }*/
-
         yield return new WaitForSeconds(1f);
         _invincible = false;
     }
@@ -138,6 +129,7 @@ public class Player : MonoBehaviour
     private void OnDamage(float damage)
     {
         OnHealthChanged?.Invoke(_health.MaxHealth - damage);
+        OnDamageTaken?.Invoke();
     }
 
     private void MoveLeft()
