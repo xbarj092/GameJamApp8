@@ -104,7 +104,6 @@ public class SpawnerDown : MonoBehaviour
             Obstacle obstacle = _obstaclePrefabs[Random.Range(0, _obstaclePrefabs.Count)];
 
             Obstacle spawnedObstacle = Instantiate(obstacle, spawnPosition, Quaternion.identity);
-            spawnedObstacle.transform.localScale = Vector3.one;
 
             Vector2 obstacleSize = Vector3.one;
             Collider2D[] collidersInRange = Physics2D.OverlapBoxAll(spawnPosition, obstacleSize, 0f);
