@@ -239,6 +239,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3218692851807009077}
     m_Modifications:
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b3d2d451f43b8c4d9c124ba0264939b, type: 2}
     - target: {fileID: 1296711233079730308, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
       propertyPath: m_text
       value: QUIT
@@ -533,6 +557,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3218692851807009077}
     m_Modifications:
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b3d2d451f43b8c4d9c124ba0264939b, type: 2}
     - target: {fileID: 1296711233079730308, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
       propertyPath: m_text
       value: 'PLAY
@@ -696,6 +744,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3218692851807009077}
     m_Modifications:
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193201325858755888, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b3d2d451f43b8c4d9c124ba0264939b, type: 2}
     - target: {fileID: 1296711233079730308, guid: c47ecbe3018bc834b83eb301b5b22c53, type: 3}
       propertyPath: m_text
       value: OPTIONS

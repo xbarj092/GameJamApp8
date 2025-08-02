@@ -17,8 +17,9 @@ public class LeaderboardManager : MonoBehaviour
     {
         foreach (var i in items) 
         {
-            i.Name.text = "XXX";
-            i.Score.text = "0";
+            i.Position.text = "";
+            i.Name.text = "_____";
+            i.Score.text = "/";
         }
     }
 
@@ -69,6 +70,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             if (i == 10)
                 return;
+            items[i].Position.text = entry.Rank.ToString();
             items[i].Name.text = entry.Username;
             items[i].Score.text = SetTimeText(entry.Score);
             i++;
