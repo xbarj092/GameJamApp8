@@ -10,8 +10,8 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Image _upperHealthUIFillBar;
     [SerializeField] private Image _lowerHealthUIFillBar;
 
-    private readonly int[] _upperHealthWidths = { 0, 27, 47, 66 };
-    private readonly int[] _lowerHealthWidths = { 0, 17, 30, 42 };
+    private readonly int[] _upperHealthWidths = { 0, 27, 48, 68 };
+    private readonly int[] _lowerHealthWidths = { 0, 27, 48, 68 };
 
     private void OnEnable()
     {
