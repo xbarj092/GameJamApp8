@@ -76,7 +76,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _shieldPickupPrefab: {fileID: 0}
-  _hpPickupPrefab: {fileID: 8069497238217440898, guid: 68706ad8d712415469be8be4e5b38a12, type: 3}
+  _hpPickupPrefab: {fileID: 8478339039904827000, guid: 3f96711144de33647a161947652f5b95, type: 3}
   _bulletPickupPrefab: {fileID: 0}
   _pickupSpawnChance: 0.3
 --- !u!1 &5852842605627280340
