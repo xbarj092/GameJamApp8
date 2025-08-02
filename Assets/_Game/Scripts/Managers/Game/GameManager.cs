@@ -24,7 +24,7 @@ public class GameManager : MonoSingleton<GameManager>
         InvokeRepeating(nameof(IncrementSeconds), 0f, 1f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Score++;
     }
@@ -38,5 +38,12 @@ public class GameManager : MonoSingleton<GameManager>
             OnPlayersSwapped?.Invoke();
             CurrentPlayerIndex = CurrentPlayerIndex == 0 ? 1 : 0;
         }
+    }
+
+    public void Restart()
+    {
+        SecondsPassed = 0;
+        Score = 0;
+        CurrentPlayerIndex = 0;
     }
 }
