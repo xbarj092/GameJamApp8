@@ -9,6 +9,11 @@ public class PickupableItem : MonoBehaviour
     private IPickupable _pickupableStrategy;
     public IPickupable PickupableStrategy => _pickupableStrategy;
 
+    private void Start()
+    {
+        Destroy(gameObject, 20f);
+    }
+
     private void OnDisable()
     {
         _pickupableStrategy.OnMessageShown -= OnMessageShown;

@@ -13,6 +13,8 @@ public class Obstacle : MonoBehaviour
         );
 
         _visual.transform.rotation = randomRotation;
+
+        Destroy(gameObject, 20f);
     }
 
     private void Update()
@@ -31,9 +33,6 @@ public class Obstacle : MonoBehaviour
             // AudioManager.Instance.Play(SoundType.PlayerHitObstacle);
         }
 
-        if (other.CompareTag("ObjectDestroyer"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

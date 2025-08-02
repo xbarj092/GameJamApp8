@@ -50,11 +50,33 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void SetVolume(SoundGroup group, float volume) => _settingsManager.SetVolume(group, volume);
     public float GetVolume(SoundGroup group) => _settingsManager.GetVolume(group);
 
-    public void SetMasterVolume(float volume) => SetVolume(SoundGroup.None, volume);
+    public void SetMasterVolume(float volume)
+    {
+        SetVolume(SoundGroup.None, volume);
+
+        if (volume == -80f)
+        {
+            Muted = true;
+        }
+        else
+        {
+            Muted = false;
+        }
+    }
+
     public void SetMusicVolume(float volume) => SetVolume(SoundGroup.Music, volume);
     public void SetSFXVolume(float volume) => SetVolume(SoundGroup.SFX, volume);
     public void SetUIVolume(float volume) => SetVolume(SoundGroup.UI, volume);
 
-    public void MuteAll() => SetMasterVolume(-80f);
-    public void UnmuteAll() => SetMasterVolume(_settingsManager.GetVolume(SoundGroup.None));
+    public void MuteAll()
+    {
+        SetMasterVolume(-80f);
+        Muted = true;
+    }
+
+    public void UnmuteAll()
+    {
+        SetMasterVolume(_settingsManager.GetVolume(SoundGroup.None));
+        Muted = false;
+    }
 }
