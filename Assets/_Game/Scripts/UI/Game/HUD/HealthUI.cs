@@ -1,4 +1,4 @@
-using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +26,10 @@ public class HealthUI : MonoBehaviour
     {
         Vector2 size = _upperHealthUIFillBar.rectTransform.sizeDelta;
         size.x = _upperHealthWidths[(int)value];
-        _upperHealthUIFillBar.rectTransform.sizeDelta = size;
+
+        _upperHealthUIFillBar.rectTransform
+            .DOSizeDelta( size, 0.25f )
+            .SetEase(Ease.OutQuad);
     }
 
     private void UpdateLowerHealthUI(float value)
