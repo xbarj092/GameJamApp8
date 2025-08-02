@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6986754925016355375}
   - component: {fileID: -8389735607706989746}
   - component: {fileID: 5357567768613157556}
+  - component: {fileID: -6376534981312059484}
   m_Layer: 0
   m_Name: PlayerDown
   m_TagString: PlayerTwo
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543a0239197b8849b3687a32e7496b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: -6376534981312059484}
   _visual: {fileID: 4169930340839485421}
   _rotationDuration: 0.4
   _rotationAngleDefault: {x: 0, y: 90, z: 0}
@@ -107,6 +109,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.89, y: 1, z: 8.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6376534981312059484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174018792715271709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbfcd21d0259f74d8fa84214074915c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OnHeal>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnDamage>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnMaxHealthChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnDeath>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6048973474257811086
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +494,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d92bb8bae330a3046a04f3572ead67d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: d92bb8bae330a3046a04f3572ead67d0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: d92bb8bae330a3046a04f3572ead67d0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

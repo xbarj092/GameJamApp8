@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
-            player.Death();
+            player.Damage(1f);
             // AudioManager.Instance.Play(SoundType.PlayerHitObstacle);
         }
 

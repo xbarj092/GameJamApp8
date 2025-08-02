@@ -1,9 +1,14 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Health _health;
+
     [SerializeField] private GameObject _visual;
     [SerializeField] private float _rotationDuration;
     [SerializeField] private Vector3 _rotationAngleDefault;
@@ -19,6 +24,25 @@ public class Player : MonoBehaviour
     public int CurrentLine = 1;
 
     private bool _isMoving = false;
+    private bool _invincible;
+
+    public event Action<float> OnHealthChanged;
+
+    private void OnEnable()
+    {
+        _health.SetMaxHealth(3);
+
+        _health.OnDamage.AddListener(OnDamage);
+        _health.OnHeal.AddListener(OnHeal);
+        _health.OnDeath.AddListener(Death);
+    }
+
+    private void OnDisable()
+    {
+        _health.OnDamage.RemoveListener(OnDamage);
+        _health.OnHeal.RemoveListener(OnHeal);
+        _health.OnDeath.RemoveListener(Death);
+    }
 
     private void Update()
     {
@@ -56,6 +80,54 @@ public class Player : MonoBehaviour
 
             _isMoving = false;
         }
+    }
+
+    public void Damage(float damage)
+    {
+        if (_invincible)
+        {
+            return;
+        }
+
+        _health.DealDamage(damage);
+
+        // AudioManager.Instance.Play(SoundType.PlayerHitBullet);
+
+        if (_health.CurrHealth <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            StartCoroutine(Invincibility());
+        }
+    }
+
+    private IEnumerator Invincibility()
+    {
+        _invincible = true;
+        /*Color baseColor = _renderer.color;
+        Color disabledColor = new(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0);
+        for (int i = 0; i < 5; i++)
+        {
+            _renderer.color = disabledColor;
+            yield return new WaitForSeconds(0.1f);
+            _renderer.color = baseColor;
+            yield return new WaitForSeconds(0.1f);
+        }*/
+
+        yield return new WaitForSeconds(1f);
+        _invincible = false;
+    }
+
+    private void OnHeal(float damage)
+    {
+        OnHealthChanged?.Invoke(_health.MaxHealth - damage);
+    }
+
+    private void OnDamage(float damage)
+    {
+        OnHealthChanged?.Invoke(_health.MaxHealth - damage);
     }
 
     private void MoveLeft()
