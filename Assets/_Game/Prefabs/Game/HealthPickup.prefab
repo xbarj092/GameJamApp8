@@ -413,4 +413,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 50
   floatAmplitude: 0.3
-  floatFrequency: 1
+  floatDuration: 1

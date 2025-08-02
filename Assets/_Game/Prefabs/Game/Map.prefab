@@ -47,5 +47,5 @@ MonoBehaviour:
   _chunkPrefabs:
   - {fileID: 2936176651992843096, guid: 3d5da163f8dae574781ab055d98675fe, type: 3}
   _player: {fileID: 0}
-  _chunkSize: 125
-  _chunksToKeep: 3
+  _chunkSize: 50
+  _chunksToKeep: 5

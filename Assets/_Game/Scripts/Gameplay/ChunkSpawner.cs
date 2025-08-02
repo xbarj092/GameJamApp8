@@ -64,7 +64,7 @@ public class SimpleChunkSpawner : MonoBehaviour
     private void SpawnChunk(int chunkIndex)
     {
         GameObject prefab = _chunkPrefabs[Random.Range(0, _chunkPrefabs.Count)];
-        Vector3 position = new(0, 0, chunkIndex * _chunkSize);
+        Vector3 position = new(0, 0, (chunkIndex * _chunkSize) - 5);
 
         GameObject chunk = Instantiate(prefab, position, Quaternion.identity);
         chunk.name = $"Chunk_{chunkIndex}";
