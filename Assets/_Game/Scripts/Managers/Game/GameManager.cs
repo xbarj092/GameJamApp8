@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    [field: SerializeField] public float MovementSpeed {  get; private set; }
+    [SerializeField] private float _baseMovementSpeed;
+    [SerializeField] private AnimationCurve _movementSpeedCurve;
+    public float MovementSpeed
+    {
+        get => _movementSpeedCurve.Evaluate((float)SecondsPassed / 60f) * _baseMovementSpeed;
+    }
 
     public int SecondsPassed = 0;
     public int Score;

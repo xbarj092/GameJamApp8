@@ -45,19 +45,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ca1592f495a20479f5eae94a898fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnInterval: 1
   _obstaclePrefabs:
   - {fileID: 1368501417917094931, guid: 5cefa468b95ec904a99a1078381597ca, type: 3}
   - {fileID: 1368501417917094931, guid: 5258a83f5baa4e947941c7c004219edd, type: 3}
   - {fileID: 1368501417917094931, guid: 7db1225a1e5bfc847a63788cb1a7919d, type: 3}
   - {fileID: 1368501417917094931, guid: 4ab104afd414ece47b08542189a61a6b, type: 3}
   _spawnChance: 1
+  _spawnInterval:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.000003181398
+      value: 2
+      inSlope: -0.051839847
+      outSlope: -0.051839847
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3358578
+    - serializedVersion: 3
+      time: 2
+      value: 0.25
+      inSlope: -0.40600654
+      outSlope: -0.40600654
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.46026134
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _shieldPickupPrefab: {fileID: 0}
   _hpPickupPrefab: {fileID: 8069497238217440898, guid: 68706ad8d712415469be8be4e5b38a12, type: 3}
   _bulletPickupPrefab: {fileID: 0}
   _pickupSpawnChance: 0.3
-  _spawnRateMultiplierThresholds:
-    _serializedList: []
 --- !u!1 &5852842605627280340
 GameObject:
   m_ObjectHideFlags: 0

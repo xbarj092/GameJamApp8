@@ -82,6 +82,7 @@ MonoBehaviour:
   _leftKey: 97
   _rightKey: 100
   CurrentLine: 1
+  CurrentPickupable: {fileID: 0}
 --- !u!54 &-6734962483180144950
 Rigidbody:
   m_ObjectHideFlags: 0

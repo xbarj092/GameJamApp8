@@ -1,4 +1,3 @@
-using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +6,11 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private float[] _positions = { -3.75f, -1.25f, 1.25f };
-    [SerializeField] private float _spawnInterval = 2f;
 
     [Header("Obstacles")]
     [SerializeField] private List<Obstacle> _obstaclePrefabs;
     [SerializeField][Range(0f, 1f)] private float _spawnChance = 1f;
+    [SerializeField] private AnimationCurve _spawnInterval;
 
     [Header("Pickupables")]
     [SerializeField] private PickupableItem _shieldPickupPrefab;
@@ -19,8 +18,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private PickupableItem _bulletPickupPrefab;
 
     [SerializeField][Range(0f, 1f)] private float _pickupSpawnChance = 0.0f;
-
-    [SerializeField] private SerializedDictionary<int, int> _spawnRateMultiplierThresholds = new();
 
     private Player _player;
 
@@ -38,15 +35,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            foreach (KeyValuePair<int, int> threshold in _spawnRateMultiplierThresholds)
-            {
-                if (GameManager.Instance.SecondsPassed >= threshold.Key)
-                {
-                    _spawnInterval = Random.Range(1f, 3f) * threshold.Value;
-                }
-            }
-
-            yield return new WaitForSeconds(_spawnInterval);
+            yield return new WaitForSeconds(_spawnInterval.Evaluate((float)GameManager.Instance.SecondsPassed / 60f));
             if (Random.value <= _spawnChance)
             {
                 if (Random.value <= _pickupSpawnChance)
