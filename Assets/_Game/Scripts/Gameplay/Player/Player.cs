@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
         }
 
         _renderer.material.SetFloat("_Progress", 1);*/
-        yield return null;
+        yield return new WaitForSecondsRealtime(1f);
         ScreenEvents.OnGameScreenOpenedInvoke(GameScreenType.Result);
     }
 }

@@ -1,7 +1,4 @@
-using DG.Tweening.Core.Easing;
-using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DamageFX : MonoBehaviour
 {
