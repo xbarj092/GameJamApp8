@@ -8,6 +8,8 @@ public class HUD : BaseScreen
     [SerializeField] private OptionsPopup _optionsPopup;
     [SerializeField] private Image _settingsImage;
 
+    [SerializeField] private Button _settingsButton;
+
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _timeToSwapText;
 
@@ -43,6 +45,7 @@ public class HUD : BaseScreen
 
     private void Start()
     {
+        SetButtonInteractable(LocalDataStorage.Instance.PlayerPrefs.LoadTutorial());
         InvokeRepeating(nameof(DecrementSeconds), 0f, 1f);
     }
 
@@ -87,6 +90,11 @@ public class HUD : BaseScreen
     {
         _scoreText.text = GameManager.Instance.Score.ToString();
         _timeToSwapText.text = _currentSeconds.ToString();
+    }
+
+    public void SetButtonInteractable(bool buttonInteractable)
+    {
+        _settingsButton.interactable = buttonInteractable;
     }
 
     public void OpenOptions()

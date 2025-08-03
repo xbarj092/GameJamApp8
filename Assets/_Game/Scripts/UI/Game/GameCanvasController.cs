@@ -12,6 +12,7 @@ public class GameCanvasController : CanvasController
 
         if (!LocalDataStorage.Instance.PlayerPrefs.LoadTutorial())
         {
+            FindFirstObjectByType<HUD>().SetButtonInteractable(false);
             InstantiateNewGameScreen(GameScreenType.Tutorial);
             GameManager.Instance.CanPlay = false;
             GameManager.Instance.Score = 0;

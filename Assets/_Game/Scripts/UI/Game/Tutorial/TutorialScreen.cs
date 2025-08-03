@@ -14,5 +14,6 @@ public class TutorialScreen : BaseScreen
         Time.timeScale = 1;
 
         GameManager.Instance.CanPlay = true;
+        FindFirstObjectByType<HUD>().SetButtonInteractable(true);
     }
 }

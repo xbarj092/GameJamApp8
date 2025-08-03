@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameScreenType: 1
   _optionsPopup: {fileID: 7207459506835588351}
+  _swap: {fileID: 0}
+  _matSwap: {fileID: 0}
 --- !u!1 &6879489372994610242
 GameObject:
   m_ObjectHideFlags: 0

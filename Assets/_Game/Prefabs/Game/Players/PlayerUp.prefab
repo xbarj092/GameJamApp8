@@ -485,6 +485,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6925173468351801815}
     m_Modifications:
+    - target: {fileID: 4937650964091361577, guid: 5c107ffbe9b689b4b8c73644646628d0, type: 3}
+      propertyPath: _pickupSpawnChance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5672758836131821773, guid: 5c107ffbe9b689b4b8c73644646628d0, type: 3}
       propertyPath: m_Name
       value: ObjectSpawner

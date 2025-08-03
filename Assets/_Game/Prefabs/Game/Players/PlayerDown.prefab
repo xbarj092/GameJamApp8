@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectSpawnerDown
       objectReference: {fileID: 0}
+    - target: {fileID: 8764057899883754703, guid: c536482bef6edde4f85b68046e9d52de, type: 3}
+      propertyPath: _pickupSpawnChance
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

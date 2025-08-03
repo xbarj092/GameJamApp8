@@ -227,6 +227,7 @@ MonoBehaviour:
   GameScreenType: 4
   _optionsPopup: {fileID: 9157757753454647390}
   _settingsImage: {fileID: 7374133169688450916}
+  _settingsButton: {fileID: 5289283781949255550}
   _scoreText: {fileID: 4105574624245456720}
   _timeToSwapText: {fileID: 1393151394253532178}
   _diamondTransform: {fileID: 8097788118736981671}

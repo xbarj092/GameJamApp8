@@ -87,7 +87,7 @@ public class Spawner : MonoBehaviour
             shieldWeight = 1.5f;
         }*/
 
-        float totalWeight = hpWeight * 2; // + ammoWeight + shieldWeight;
+        float totalWeight = hpWeight; // + ammoWeight + shieldWeight;
         float randomValue = Random.Range(0f, totalWeight);
 
         if (randomValue < hpWeight)
