@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MenuObject : MonoBehaviour
@@ -5,6 +6,7 @@ public class MenuObject : MonoBehaviour
     [SerializeField] private float _moveSpeed;
 
     private Vector2 _targetPosition;
+    public event Action Ondestroyed;
 
     private void Start()
     {
@@ -40,7 +42,7 @@ public class MenuObject : MonoBehaviour
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
-                        Destroy(gameObject);
+                        DestroyObject();
                     }
                 }
             }
@@ -49,17 +51,23 @@ public class MenuObject : MonoBehaviour
 
     private void Move()
     {
-        float multiplier = Random.Range(0.8f, 1.21f);
+        float multiplier = UnityEngine.Random.Range(0.8f, 1.21f);
         transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _moveSpeed * multiplier * Time.deltaTime);
         if (Vector3.Distance(transform.position, _targetPosition) < 0.01f)
         {
-            Destroy(gameObject);
+            DestroyObject();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other);
+        DestroyObject();
+    }
+
+    private void DestroyObject()
+    {
+        Ondestroyed?.Invoke();
         Destroy(gameObject);
     }
 }

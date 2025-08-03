@@ -1,10 +1,12 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
+    [SerializeField] private Image _settingsImage;
 
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _timeToSwapText;
@@ -77,6 +79,8 @@ public class HUD : BaseScreen
         _playerTwoBarTransform.DOLocalRotate(playerOne ? _playerTwoBarPlayerOneRotation : _playerTwoBarPlayerTwoRotation, _playerTwoBarRotationDuration).SetEase(Ease.OutBack);
         _playerTwoBarTransform.DOLocalMove(playerOne ? _playerTwoBarPlayerOnePosition : _playerTwoBarPlayerTwoPosition, _playerTwoBarPositionDuration).SetEase(Ease.OutBack);
         _playerTwoBarTransform.DOScale(playerOne ? _playerTwoBarPlayerOneScale : _playerTwoBarPlayerTwoScale, _playerTwoBarScaleDuration).SetEase(Ease.OutBack);
+
+        _settingsImage.color = playerOne ? Color.white : Color.black;
     }
 
     private void Update()
