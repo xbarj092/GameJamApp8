@@ -38,7 +38,7 @@ public class PickupableItem : MonoBehaviour
     {
         if (_pickedUp)
         {
-            return;
+            yield break;
         }
 
         _text.gameObject.SetActive(true);
