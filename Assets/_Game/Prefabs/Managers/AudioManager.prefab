@@ -57,4 +57,54 @@ MonoBehaviour:
       - Key: 3
         Value: {fileID: 5411111184790683999, guid: 8cc9ee9a7a0c7db46a439532da7f1658, type: 2}
     MasterMixer: {fileID: 24300002, guid: 8cc9ee9a7a0c7db46a439532da7f1658, type: 2}
-    Sounds: []
+    Sounds:
+    - Name: 3
+      Group: 3
+      Clip: {fileID: 8300000, guid: f9b62047724c99645b47b36526dc5a36, type: 3}
+      SpatialBlend: 0
+      Loop: 0
+      NumberOfSource: 2
+      Volume: 0.5
+      Pitch: 1
+      VariablePitch: 0
+      Source: []
+    - Name: 7
+      Group: 1
+      Clip: {fileID: 8300000, guid: 85642173bae550e49ba86d86055bbd49, type: 3}
+      SpatialBlend: 0
+      Loop: 0
+      NumberOfSource: 4
+      Volume: 0.4
+      Pitch: 1
+      VariablePitch: 0
+      Source: []
+    - Name: 6
+      Group: 1
+      Clip: {fileID: 8300000, guid: 18e5f07c272411943849bef98d2ed888, type: 3}
+      SpatialBlend: 0
+      Loop: 0
+      NumberOfSource: 3
+      Volume: 0.5
+      Pitch: 1
+      VariablePitch: 0
+      Source: []
+    - Name: 2
+      Group: 2
+      Clip: {fileID: 8300000, guid: f94960a90f76d8447b2616bd34982099, type: 3}
+      SpatialBlend: 0
+      Loop: 1
+      NumberOfSource: 1
+      Volume: 0.35
+      Pitch: 1
+      VariablePitch: 0
+      Source: []
+    - Name: 1
+      Group: 2
+      Clip: {fileID: 8300000, guid: ce55a7f7b732cef4883f27f2101e0c20, type: 3}
+      SpatialBlend: 0
+      Loop: 1
+      NumberOfSource: 1
+      Volume: 0.35
+      Pitch: 1
+      VariablePitch: 0
+      Source: []

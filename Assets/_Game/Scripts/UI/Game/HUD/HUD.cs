@@ -96,4 +96,11 @@ public class HUD : BaseScreen
         _optionsPopup.gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    public void GoToMenu()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.Restart();
+        SceneLoadManager.Instance.GoGameToMenu();
+    }
 }

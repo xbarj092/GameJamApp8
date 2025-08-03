@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
         _health.DealDamage(damage);
 
-        // AudioManager.Instance.Play(SoundType.PlayerHitBullet);
+        AudioManager.Instance.PlaySound(SoundType.SpaceshipCrash);
 
         if (_health.CurrHealth <= 0)
         {

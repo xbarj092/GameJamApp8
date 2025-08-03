@@ -50,10 +50,7 @@ public class PickupableItem : MonoBehaviour
         {
             bool canPickUp = _pickupableStrategy.CanPickUp(player);
             _pickupableStrategy.ApplyEffect(player);
-            if (canPickUp)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 
