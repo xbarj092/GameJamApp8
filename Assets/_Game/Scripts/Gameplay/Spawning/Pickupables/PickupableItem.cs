@@ -55,6 +55,11 @@ public class PickupableItem : MonoBehaviour
 
     public void Collect(Player player)
     {
+        if (_pickedUp)
+        {
+            return;
+        }
+
         if (_pickupableStrategy != null)
         {
             bool canPickUp = _pickupableStrategy.CanPickUp(player);

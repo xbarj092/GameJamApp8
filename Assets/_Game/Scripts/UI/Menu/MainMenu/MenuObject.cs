@@ -4,12 +4,19 @@ using UnityEngine;
 public class MenuObject : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private bool _rotate;
+
+    private Vector3 _rotationAngle;
 
     private Vector2 _targetPosition;
     public event Action Ondestroyed;
 
     private void Start()
     {
+        _rotationAngle = new(UnityEngine.Random.Range(-0.5f, 0.5f),
+            UnityEngine.Random.Range(-0.5f, 0.5f),
+            UnityEngine.Random.Range(-0.5f, 0.5f));
+
         Destroy(gameObject, 20f);
     }
 
@@ -24,6 +31,11 @@ public class MenuObject : MonoBehaviour
 
     private void Update()
     {
+        if (_rotate)
+        {
+            transform.Rotate(_rotationAngle);
+        }
+
         Move();
         HandleMouseClick();
     }
