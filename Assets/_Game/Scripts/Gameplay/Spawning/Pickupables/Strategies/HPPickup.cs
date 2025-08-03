@@ -18,7 +18,7 @@ public class HpPickup : IPickupable
         if (CanPickUp(player))
         {
             player.RestoreHealth(_healthAmount);
-            // AudioManager.Instance.Play(SoundType.HPPickup);
+            AudioManager.Instance.PlaySound(SoundType.HealPickup);
         }
         else
         {

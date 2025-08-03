@@ -19,11 +19,31 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     {
         _transitionActions = new Dictionary<(SceneLoader.Scenes, SceneLoader.Scenes), Action>
         {
-            { (SceneLoader.Scenes.BootScene, SceneLoader.Scenes.MenuScene), () => { } },
-            { (SceneLoader.Scenes.MenuScene, SceneLoader.Scenes.GameScene), () => { } },
-            { (SceneLoader.Scenes.GameScene, SceneLoader.Scenes.MenuScene), () => { } },
+            { (SceneLoader.Scenes.BootScene, SceneLoader.Scenes.MenuScene), BootToMenuAudio },
+            { (SceneLoader.Scenes.MenuScene, SceneLoader.Scenes.GameScene), MenuToGameAudio },
+            { (SceneLoader.Scenes.GameScene, SceneLoader.Scenes.MenuScene), GameToMenuAudio },
             { (SceneLoader.Scenes.GameScene, SceneLoader.Scenes.GameScene), () => { } },
         };
+    }
+
+    private void BootToMenuAudio()
+    {
+        Debug.Log( "[Audio] - Boot to Menu" );
+        AudioManager.Instance.PlaySound( SoundType.MenuMusic );
+    }
+
+    private void MenuToGameAudio()
+    {
+        Debug.Log( "[Audio] - Menu to Game" );
+        AudioManager.Instance.StopSound(SoundType.MenuMusic);
+        AudioManager.Instance.PlaySound(SoundType.GameMusic);
+    }
+
+    private void GameToMenuAudio()
+    {
+        Debug.Log( "[Audio] - Game to Menu" );
+        AudioManager.Instance.StopSound(SoundType.GameMusic);
+        AudioManager.Instance.PlaySound(SoundType.MenuMusic);
     }
 
     public void GoBootToMenu() => LoadSceneWithTransition(SceneLoader.Scenes.BootScene, SceneLoader.Scenes.MenuScene);
