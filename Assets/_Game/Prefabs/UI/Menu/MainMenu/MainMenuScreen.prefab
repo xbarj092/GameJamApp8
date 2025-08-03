@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main menu
+  m_text: Up-Down-Up
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f537e572c13a21f46b7c7f1553dafe87, type: 2}
   m_sharedMaterial: {fileID: 7733482059893668180, guid: f537e572c13a21f46b7c7f1553dafe87, type: 2}

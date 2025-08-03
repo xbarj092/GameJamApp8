@@ -26,11 +26,21 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void FixedUpdate()
     {
+        if (!SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
+        {
+            return;
+        }
+
         Score++;
     }
 
     private void IncrementSeconds()
     {
+        if (!SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
+        {
+            return;
+        }
+
         SecondsPassed++;
 
         if (SecondsPassed % SecondsToSwapPlayers == 0)
