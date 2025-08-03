@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickupableItem : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
+    [SerializeField] private ParticleSystem _pickupEffect;
 
     private IPickupable _pickupableStrategy;
     public IPickupable PickupableStrategy => _pickupableStrategy;
@@ -50,6 +51,12 @@ public class PickupableItem : MonoBehaviour
         {
             bool canPickUp = _pickupableStrategy.CanPickUp(player);
             _pickupableStrategy.ApplyEffect(player);
+
+            if (canPickUp && _pickupEffect != null)
+            {
+                Instantiate(_pickupEffect, transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
         }
     }

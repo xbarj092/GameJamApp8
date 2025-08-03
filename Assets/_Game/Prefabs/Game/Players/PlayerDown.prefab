@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5357567768613157556}
   - component: {fileID: -6376534981312059484}
   - component: {fileID: 5839071183603802899}
+  - component: {fileID: 2438322046843215872}
   m_Layer: 0
   m_Name: PlayerDown
   m_TagString: PlayerTwo
@@ -149,6 +150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkDuration: 1
   _srObject: {fileID: 4743243203682210649}
+--- !u!114 &2438322046843215872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174018792715271709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e872837619caa8c42b0cefb871b7486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageFXPrefab: {fileID: 5002957758184744296, guid: f923c7afd1fd81241bbccad9fbc54c9f, type: 3}
 --- !u!1 &6048973474257811086
 GameObject:
   m_ObjectHideFlags: 0
