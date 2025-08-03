@@ -163,6 +163,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
+        _visual.SetActive(false);
         Time.timeScale = 0;
         StartCoroutine(LerpProgress());
 
