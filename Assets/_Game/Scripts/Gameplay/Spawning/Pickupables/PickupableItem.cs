@@ -6,6 +6,7 @@ public class PickupableItem : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
     [SerializeField] private ParticleSystem _pickupEffect;
+    [SerializeField] private GameObject _visual;
 
     private IPickupable _pickupableStrategy;
     public IPickupable PickupableStrategy => _pickupableStrategy;
@@ -57,7 +58,8 @@ public class PickupableItem : MonoBehaviour
                 Instantiate(_pickupEffect, transform.position, Quaternion.identity);
             }
 
-            Destroy(gameObject);
+            _visual.SetActive(false);
+            Destroy(gameObject, 2f);
         }
     }
 

@@ -14,6 +14,12 @@ public class AudioSettingsManager
     public void SetVolume(SoundGroup group, float volume)
     {
         _currentSettings[group] = volume;
+
+        if (volume == -40f)
+        {
+            volume = -80f;
+        }
+        
         _mixerController.SetVolume(group, volume);
         SaveSettings();
     }
