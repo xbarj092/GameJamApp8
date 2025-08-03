@@ -4,14 +4,10 @@ using UnityEngine;
 public class MainMenuScreen : BaseScreen
 {
     [SerializeField] private OptionsPopup _optionsPopup;
-
-    private ColorSwap _colorSwap;
-
     private int _seconds = 10;
 
     private void Awake()
     {
-        _colorSwap = FindFirstObjectByType<ColorSwap>();
         InvokeRepeating(nameof(IncrementSeconds), 0f, 1f);
     }
 
@@ -21,7 +17,6 @@ public class MainMenuScreen : BaseScreen
         if (_seconds % 10 == 0)
         {
             _seconds = 10;
-            _colorSwap.SwapCameraColor();
             Camera.main.transform.DORotate(new Vector3(0, 0, Camera.main.transform.rotation.z == 0 ? 180 : 0), 0.5f).SetEase(Ease.OutBack);
             transform.DORotate(new Vector3(0, 0, transform.rotation.z == 0 ? 180 : 0), 0.5f).SetEase(Ease.OutBack);
         }
