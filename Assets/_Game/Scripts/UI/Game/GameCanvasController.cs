@@ -4,11 +4,16 @@ public class GameCanvasController : CanvasController
 {
     [SerializeField] private HUD _HUDPrefab;
     [SerializeField] private ResultScreen _resultScreenPrefab;
-    [SerializeField] private ThankYouScreen _thankYouScreenPrefab;
+    [SerializeField] private TutorialScreen _tutorialScreenPrefab;
 
     private void Awake()
     {
         InstantiateNewGameScreen(GameScreenType.HUD);
+
+        if (!LocalDataStorage.Instance.PlayerPrefs.LoadTutorial())
+        {
+            InstantiateNewGameScreen(GameScreenType.Tutorial);
+        }
     }
 
     protected override BaseScreen InstantiateNewGameScreen(GameScreenType gameScreenType)
@@ -17,7 +22,7 @@ public class GameCanvasController : CanvasController
         {
             GameScreenType.HUD => Instantiate(_HUDPrefab, transform),
             GameScreenType.Result => Instantiate(_resultScreenPrefab, transform),
-            GameScreenType.ThankYouForPlaying => Instantiate(_thankYouScreenPrefab, transform),
+            GameScreenType.Tutorial => Instantiate(_tutorialScreenPrefab, transform),
             _ => base.InstantiateNewGameScreen(gameScreenType),
         };
     }

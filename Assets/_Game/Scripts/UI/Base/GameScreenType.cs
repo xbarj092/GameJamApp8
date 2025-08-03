@@ -4,5 +4,5 @@ public enum GameScreenType
     MainMenu = 1,
     HUD = 2,
     Result = 3,
-    ThankYouForPlaying = 4,
+    Tutorial = 4,
 }

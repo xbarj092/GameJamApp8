@@ -116,4 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HUDPrefab: {fileID: 4459896697899546516, guid: 85b8491790396eb4b83789e392be6a04, type: 3}
   _resultScreenPrefab: {fileID: 1397081049230600969, guid: 7778b0c01e0195f4ca90fb8f1ad94397, type: 3}
-  _thankYouScreenPrefab: {fileID: 5707311147404555489, guid: a74e49407cc9b884ea10b67243a14395, type: 3}
+  _tutorialScreenPrefab: {fileID: 5707311147404555489, guid: a74e49407cc9b884ea10b67243a14395, type: 3}
