@@ -15,6 +15,8 @@ public class GameManager : MonoSingleton<GameManager>
     public int SecondsPassed = 0;
     public int Score;
 
+    public bool CanPlay = false;
+
     public int CurrentPlayerIndex = 0;
 
     public event Action OnPlayersSwapped;
@@ -26,6 +28,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void FixedUpdate()
     {
+        if (!CanPlay)
+        {
+            return;
+        }
+
         if (!SceneLoadManager.Instance.IsSceneLoaded(SceneLoader.Scenes.GameScene))
         {
             return;

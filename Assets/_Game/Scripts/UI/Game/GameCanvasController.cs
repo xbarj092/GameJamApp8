@@ -13,6 +13,12 @@ public class GameCanvasController : CanvasController
         if (!LocalDataStorage.Instance.PlayerPrefs.LoadTutorial())
         {
             InstantiateNewGameScreen(GameScreenType.Tutorial);
+            GameManager.Instance.CanPlay = false;
+            GameManager.Instance.Score = 0;
+        }
+        else
+        {
+            GameManager.Instance.CanPlay = true;
         }
     }
 
