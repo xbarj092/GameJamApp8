@@ -54,7 +54,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         SetVolume(SoundGroup.None, volume);
 
-        if (volume == -80f)
+        if (volume == -40f)
         {
             Muted = true;
         }
