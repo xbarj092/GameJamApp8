@@ -8,6 +8,8 @@ public class PickupableItem : MonoBehaviour
     [SerializeField] private ParticleSystem _pickupEffect;
     [SerializeField] private GameObject _visual;
 
+    private bool _pickedUp;
+
     private IPickupable _pickupableStrategy;
     public IPickupable PickupableStrategy => _pickupableStrategy;
 
@@ -34,6 +36,11 @@ public class PickupableItem : MonoBehaviour
 
     private IEnumerator ShowText(string message)
     {
+        if (_pickedUp)
+        {
+            return;
+        }
+
         _text.gameObject.SetActive(true);
         _text.color = new Color(_text.color.r, _text.color.g, _text.color.b, 1);
         _text.text = message;
@@ -55,6 +62,7 @@ public class PickupableItem : MonoBehaviour
 
             if (canPickUp && _pickupEffect != null)
             {
+                _pickedUp = true;
                 Instantiate(_pickupEffect, transform.position, Quaternion.identity);
             }
 
