@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8385404589883157589}
+  _pickupEffect: {fileID: 1638435171934218924, guid: a7890b5c71c2331448a2a63ca2c414b3, type: 3}
 --- !u!136 &6749892144981195370
 CapsuleCollider:
   m_ObjectHideFlags: 0

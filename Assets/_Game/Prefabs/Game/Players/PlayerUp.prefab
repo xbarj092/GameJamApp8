@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2872844546289967574}
   - component: {fileID: 3033522634261175873}
   - component: {fileID: 1900762446366202988}
+  - component: {fileID: 6182642739831246274}
   m_Layer: 0
   m_Name: PlayerUp
   m_TagString: PlayerOne
@@ -149,6 +150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkDuration: 1
   _srObject: {fileID: 7218822823988750800}
+--- !u!114 &6182642739831246274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934577902349434763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e872837619caa8c42b0cefb871b7486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageFXPrefab: {fileID: 5002957758184744296, guid: f923c7afd1fd81241bbccad9fbc54c9f, type: 3}
 --- !u!1 &6679104264795623253
 GameObject:
   m_ObjectHideFlags: 0
